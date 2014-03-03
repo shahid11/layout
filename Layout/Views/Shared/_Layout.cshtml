@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Dashboard</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="~/Content/kendo.default.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <style scoped>
+        #vertical
+        {
+            height: 380px;
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        .padsidestwenty
+        {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        #middle-pane
+        {
+            background-color: rgba(60, 70, 80, 0.10);
+        }
+
+        #bottom-pane
+        {
+            background-color: rgba(60, 70, 80, 0.15);
+        }
+
+        #left-pane, #center-pane, #right-pane
+        {
+            background-color: rgba(60, 70, 80, 0.05);
+        }
+
+        .header
+        {
+            margin: 0 20px 0 20px;
+            
+            position: relative;
+            top: 2px;
+            background: rgb(223,5,29);
+            
+        }
+
+            .header img
+            {
+                max-height: 80px;
+                max-width: 600px;
+            }
+
+        .wrapper1
+        {
+            padding: 20px;
+            border: 2px solid gray;
+            border-radius: 5px;
+            /*top right bottom left*/
+            margin: 5px 20px 20px 20px;
+           
+        }
+        .full-heigth {
+             min-height: 100%; 
+        }
+        html, body {
+    		height: 100%;
+    		margin: 0;
+    	}
+        .pane-content
+        {
+            padding: 0 10px;
+        }
+        .Header-Message {
+            background: lightgray;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="~/Images/Avis%20Logos-Webs.jpg" alt="Avis" />
+    </div>
+
+    <div class="wrapper1 full-heigth">
+
+        <div class="Header-Message">
+            <h1>Header Message</h1>
+            <p>Message in detail</p>
+        </div>
+
+        <div id="example" class="k-content" >
+            <div id="horizontal" class="full-heigth" >
+                <div id="left-pane">
+                    <div>
+
+                        <div class="panel panel-primary" style="margin-top: 5px; padding: 0; margin-right: 0; margin-left: 0; height: 0; border: 0">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Panel title</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="#">Messages</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="right-pane">
+                    <div class="pane-content">
+                        <h3>Inner splitter / right pane</h3>
+                        <p>Resizable and collapsible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    @RenderBody()
+
+
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/kendo.all.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#horizontal").kendoSplitter({
+                panes: [
+                    { collapsible: true, size: "220px" },
+                    { collapsible: true, size: "220px" }
+                ]
+            });
+
+
+        });
+    </script>
+
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
